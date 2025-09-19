@@ -13,8 +13,11 @@ export const switchHelper = (component: any, accessory: PlatformAccessory): bool
     service
         .getCharacteristic(Characteristic.On)
         ?.on(CharacteristicEventTypes.SET, (value: CharacteristicValue, callback: CharacteristicSetCallback) => {
-            if (component.status !== !!currentState) {
-                currentState = component.status;
+
+            // toggle switch
+            component.state.state = !component.state.state;
+            if (component.state.state !== !!currentState) {
+                currentState = component.state.state;
                 updateEsp();
             }
             callback();
@@ -32,7 +35,7 @@ export const switchHelper = (component: any, accessory: PlatformAccessory): bool
             state: currentState,
         };
 
-        component.connection.lightCommandService(state);
+        component.connection.switchCommandService(state);
     }
 
     return true;
