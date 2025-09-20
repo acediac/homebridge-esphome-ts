@@ -1,6 +1,7 @@
 {
-    "name": "@sam-hunt/homebridge-esphome-ts",
+    "name": "@acediac/homebridge-esphome-ts",
     "version": "1.6.2b",
+    "private": true,
     "description": "New plugin for integrating for esphome into homebridge",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -15,7 +16,7 @@
         "prepack": "npm run format && npm run cbuild",
         "test": "jest"
     },
-    "repository": "https://github.com/samhunt/homebridge-esphome-ts",
+    "repository": "https://github.com/acediac/homebridge-esphome-ts",
     "files": [
         "dist",
         "config.schema.json"
